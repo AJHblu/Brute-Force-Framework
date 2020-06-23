@@ -5,8 +5,6 @@ sentry_sdk.init("https://43f47ed836314db497d1fb037e3c4ef3@o410599.ingest.sentry.
 
 os.system("sudo apt-get install git -y")
 os.system("sudo apt-get isntall snapd")
-os.chdir("/usr/share/")
-
 print(r"""
  ___             _            ___ 
 | _ ) _ _  _  _ | |_  ___    | __| ___  _ _  __  ___
@@ -20,9 +18,8 @@ print(r"""
 By: https://github.com/AJHblu
 """)
 time.sleep(1)
-
 while True:
-    os.system("clear")
+    
     print("""
     \\______________Coded by: AJHblu______________/
 
@@ -146,9 +143,54 @@ while True:
                 time.sleep(1)
 
     elif option == "3":
-        pass
+        os.system("clear")
+        os.system("sudo snap install john-the-ripper")
+        os.system("clear")
+        print("""
+        \\______________Pass The Hash______________/
+
+        [1] Simple
+        [2] Custom Worlist
+        [3] single
+        [4] incremental
+        [99] exit 
+        """)
+        option = input("BFFRAMEWORK~# ").strip()
+        
+        if option == '1':
+            fle = input("Password hash file: ")
+            os.system(f"sudo snap run john-the-ripper {fle}")
+
+        elif option == '2':
+            fle = input("Password hash file: ")
+            wlist = input("Worldist: ")
+            os.system(f"sudo snap run john-the-ripper {fle} --wordlist='{wlist}'")
+        
+        elif option == '3':
+            fle = input("Password hash file: ")
+            os.system(f"sudo snap run john-the-ripper --single {fle}")
+
+        elif option == '4':
+            fle = input("Password hash file: ")
+            os.system(f"sudo snap run john-the-ripper --incremental {fle}")
+        
+        elif option == '99':
+                print("exiting")
+                time.sleep(1)
+                os.system("clear")
+                break
+
+        else:
+            os.system("clear")
+            print("not a valid option")
+            time.sleep(1)
+
+
+
     elif option == "4":
-        pass
+        os.system("git clone https://github.com/Mebus/cupp.git")
+        os.system("python3 cupp/cupp.py -i")
+
     elif option == "99":
         print("exiting")
         break
